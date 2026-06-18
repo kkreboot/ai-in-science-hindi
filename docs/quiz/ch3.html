@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>रसायन विज्ञान में कृत्रिम बुद्धिमत्ता — स्वयं जाँचें</title>
+<script>window.MathJax={tex:{inlineMath:[['$','$']]}};</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--bg:#080D1A;--card:#0E1830;--cyan:#00F2FE;--blue:#4FACFE;--ok:#38EF7D;--bad:#FF5E62;--txt:#e9eefb}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);
+font-family:system-ui,'Noto Sans',sans-serif;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:22px 16px 60px}
+h1{color:var(--cyan);font-size:1.4rem;border-bottom:2px solid var(--cyan);padding-bottom:10px}
+.q{background:var(--card);border:1px solid #1A2B4C;border-radius:12px;padding:14px 16px;margin:16px 0}
+.q .num{color:var(--blue);font-weight:700}
+label{display:block;padding:8px 12px;margin:6px 0;border:1px solid #24365e;border-radius:8px;cursor:pointer}
+label:hover{border-color:var(--blue)}
+input{margin-left:4px;margin-right:8px;accent-color:var(--cyan)}
+.correct{border-color:var(--ok)!important;background:rgba(56,239,125,.12)}
+.wrong{border-color:var(--bad)!important;background:rgba(255,94,98,.12)}
+button{background:var(--cyan);color:#062;border:0;font-weight:700;font-size:1rem;
+padding:12px 26px;border-radius:10px;cursor:pointer;margin-top:8px}
+#score{font-size:1.2rem;font-weight:700;margin:18px 0;padding:14px;border-radius:10px;
+background:var(--card);border:1px solid var(--cyan);display:none}
+a{color:var(--cyan)}.foot{margin-top:30px;font-size:.85rem;color:#7e8db5}
+</style></head><body><div class="wrap">
+<h1>अध्याय 3: रसायन विज्ञान में कृत्रिम बुद्धिमत्ता<br><small style="font-size:.8rem;color:#7e8db5">स्वयं जाँचें — Self-check Quiz</small></h1>
+<form id="quiz"><div class="q q0"><p><span class="num">प्र.1</span> अणु को एक छोटी पंक्ति (string) के रूप में लिखने का संकेतन है:</p><label><input type="radio" name="q0" value="0">SMILES</label><label><input type="radio" name="q0" value="1">HTML</label><label><input type="radio" name="q0" value="2">JSON</label><label><input type="radio" name="q0" value="3">SQL</label></div>
+<div class="q q1"><p><span class="num">प्र.2</span> आवर्त सारणी में अनदेखे तत्वों का पूर्वानुमान किसने किया?</p><label><input type="radio" name="q1" value="0">डाल्टन</label><label><input type="radio" name="q1" value="1">मेंडेलीफ़</label><label><input type="radio" name="q1" value="2">रदरफोर्ड</label><label><input type="radio" name="q1" value="3">बोर</label></div>
+<div class="q q2"><p><span class="num">प्र.3</span> कंप्यूटर पर लाखों अणुओं को जाँचकर दवा छाँटना कहलाता है:</p><label><input type="radio" name="q2" value="0">आभासी छँटाई (virtual screening)</label><label><input type="radio" name="q2" value="1">आसवन</label><label><input type="radio" name="q2" value="2">क्रिस्टलन</label><label><input type="radio" name="q2" value="3">अनुमापन</label></div>
+<div class="q q3"><p><span class="num">प्र.4</span> AI से खोजा गया नया एंटीबायोटिक (2020) था:</p><label><input type="radio" name="q3" value="0">पेनिसिलिन</label><label><input type="radio" name="q3" value="1">हैलिसिन (Halicin)</label><label><input type="radio" name="q3" value="2">एस्पिरिन</label><label><input type="radio" name="q3" value="3">इंसुलिन</label></div>
+</form>
+<button onclick="grade()">जाँचें (Check answers)</button>
+<div id="score"></div>
+<p class="foot">यह प्रश्नोत्तरी आपके ब्राउज़र में ही जाँची जाती है — कोई लॉगिन/डेटा नहीं।
+&nbsp;·&nbsp; <a href="index.html">← सभी अध्याय</a> ·
+<a href="https://github.com/kkreboot/ai-in-science-hindi">पुस्तक (GitHub)</a></p>
+</div>
+<script>
+const ANS=[0, 1, 0, 1];
+function grade(){let s=0;ANS.forEach((a,i)=>{
+ const ls=document.querySelectorAll('.q'+i+' label');ls.forEach(l=>l.classList.remove('correct','wrong'));
+ const sel=document.querySelector('input[name=q'+i+']:checked');
+ ls[a].classList.add('correct');
+ if(sel){const v=+sel.value; if(v===a)s++; else ls[v].classList.add('wrong');}
+ });
+ const d=document.getElementById('score');d.style.display='block';
+ d.textContent='आपका स्कोर: '+s+' / '+ANS.length+'  ('+Math.round(100*s/ANS.length)+'%)';
+ d.scrollIntoView({behavior:'smooth'});}
+</script></body></html>
