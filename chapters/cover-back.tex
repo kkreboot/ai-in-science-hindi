@@ -1,0 +1,136 @@
+% ============================================================
+%  पिछला आवरण (Back cover) — मॉडर्न विज्ञान/तकनीक थीम
+%  पुस्तक-परिचय · लेखक · QR · ISBN बारकोड · उद्धरण
+% ============================================================
+\input{chapters/cover-graphics}
+\clearpage
+\thispagestyle{empty}
+
+% Force page generation so the overlay renders on a clean blank page
+\mbox{}
+
+\begin{tikzpicture}[remember picture, overlay]
+  % ---------- पृष्ठभूमि (dark space gradient matching front cover) ----------
+  \shade[top color=cvBgDark, bottom color=cvBgMid]
+        (current page.south west) rectangle (current page.north east);
+  
+  % Subtle grid pattern
+  \draw[step=1.2cm, cvGridColor, line width=0.4pt, opacity=0.45] 
+        (current page.south west) grid (current page.north east);
+
+  % Subtle flowing data pathways in the background (symmetrical to front cover)
+  \draw[cvNeonCyan, opacity=0.15, line width=1.5pt] (-10.5, 6.0) .. controls (-3.0, 4.0) and (3.0, -8.0) .. (10.5, -6.0);
+  \draw[cvNeonPurple, opacity=0.12, line width=1.2pt] (-10.5, -4.0) .. controls (-4.0, 2.0) and (4.0, 8.0) .. (10.5, 4.0);
+
+  \coordinate (C) at (current page.center);
+
+  % ---------------- 1. पुस्तक परिचय (Top Card) ----------------
+  % Glassmorphism style card body (semi-transparent dark backdrop with neon border)
+  \filldraw[fill=cvBgLight!35!cvBgDark, draw=cvNeonCyan, line width=1.5pt, rounded corners=15pt] 
+           ($(C)+(-8.5, 4.3)$) rectangle ($(C)+(8.5, 10.3)$);
+           
+  % Title banner
+  \node[fill=cvBgLight!80!cvBgDark, rounded corners=12pt, draw=cvNeonCyan, line width=1.2pt, 
+        text=white, font=\cvHH\fontsize{16}{20}\selectfont, 
+        inner xsep=22pt, inner ysep=7pt] 
+        at ($(C)+(0, 10.3)$) {पुस्तक परिचय};
+        
+  % Text inside card (white text for maximum contrast on dark mode)
+  \node[text width=13.0cm, align=justify, text=white, font=\cvBH\fontsize{10.5}{14.5}\selectfont] 
+        at ($(C)+(0, 7.1)$) {%
+    कृत्रिम बुद्धिमत्ता (Artificial Intelligence) आधुनिक विज्ञान की सबसे क्रांतिकारी
+    तकनीकों में से एक है। यह पुस्तक विद्यार्थियों को AI की मूलभूत अवधारणाओं, मशीन लर्निंग,
+    डेटा विश्लेषण, वैज्ञानिक अनुसंधान, स्वास्थ्य विज्ञान, अंतरिक्ष अन्वेषण, पर्यावरण अध्ययन
+    तथा भविष्य की उभरती प्रौद्योगिकियों से परिचित कराती है।\par\medskip
+    सरल भाषा, वास्तविक उदाहरणों और रोचक चित्रों के माध्यम से यह पुस्तक विज्ञान और AI के
+    अद्भुत संगम को समझने का एक प्रभावी माध्यम है। यह विद्यार्थियों में वैज्ञानिक सोच, नवाचार
+    और भविष्य की तकनीकों के प्रति जिज्ञासा विकसित करने के उद्देश्य से तैयार की गई है।
+  };
+  
+  % Overlapping science icons (Canva style, neon themes)
+  \pic[scale=1.1] at ($(C)+(-8.3, 7.8)$) {dna};
+  \pic[scale=0.7] at ($(C)+(-8.5, 5.0)$) {atom};
+  \pic[scale=0.8] at ($(C)+(8.3, 8.8)$) {planet};
+  \pic[scale=0.95] at ($(C)+(8.2, 5.0)$) {flask};
+
+
+  % ---------------- 2. लेखक परिचय (Middle Card) ----------------
+  % Glassmorphism card body (glowing neon-blue outline)
+  \filldraw[fill=cvBgLight!35!cvBgDark, draw=cvNeonBlue, line width=1.5pt, rounded corners=15pt] 
+           ($(C)+(-8.5, -2.3)$) rectangle ($(C)+(8.5, 2.7)$);
+           
+  % Title banner
+  \node[fill=cvBgLight!80!cvBgDark, rounded corners=12pt, draw=cvNeonBlue, line width=1.2pt, 
+        text=white, font=\cvHH\fontsize{16}{20}\selectfont, 
+        inner xsep=22pt, inner ysep=7pt] 
+        at ($(C)+(0, 2.7)$) {लेखक परिचय};
+        
+  % Circular photo of the author with neon cyan glow outline
+  \begin{scope}
+    \clip ($(C)+(-5.8, 0.1)$) circle (1.25);
+    \node at ($(C)+(-5.8, 0.1)$) {\includegraphics[width=2.5cm]{images/author.jpg}};
+  \end{scope}
+  \draw[cvNeonCyan, line width=2.0pt] ($(C)+(-5.8, 0.1)$) circle (1.25);
+  
+  % Author details (glowing white / neon cyan)
+  \node[anchor=west, text=cvNeonCyan, font=\cvHH\fontsize{16}{20}\selectfont] 
+        at ($(C)+(-4.2, 1.4)$) {कृष्ण कुमार गोदारा};
+        
+  \node[anchor=north west, text width=10.4cm, align=justify, text=white, font=\cvBH\fontsize{9.5}{13.5}\selectfont] 
+        at ($(C)+(-4.3, 1.0)$) {%
+    भारतीय प्रौद्योगिकी संस्थान (IIT) जोधपुर में भौतिकी विभाग के अंतर्गत PhD शोधार्थी (JRF)
+    हैं। उनका शोध कार्य सक्रिय पदार्थ (Active Matter), गैर-संतुलन प्रणालियों तथा कम्प्यूटेशनल
+    भौतिकी पर केंद्रित है।\par\smallskip
+    उन्होंने \textbf{CSIR-UGC NET-JRF 2024 (भौतिक विज्ञान)} में अखिल भारतीय रैंक \textbf{46}
+    प्राप्त की। उनका उद्देश्य आधुनिक विज्ञान, कृत्रिम बुद्धिमत्ता और कम्प्यूटेशनल तकनीकों को
+    विद्यार्थियों तक सरल एवं प्रेरणादायक रूप में पहुँचाना है।
+  };
+
+
+  % ---------------- 3. संपर्क सूत्र (QR Codes) ----------------
+  \node[draw=cvNeonCyan, line width=1.2pt, fill=white, inner sep=1.5pt, rounded corners=2pt] 
+        (linkedin) at ($(C)+(-4.5, -4.5)$) {\includegraphics[width=2.1cm]{images/Linkedin.png}};
+  \node[draw=cvNeonCyan, line width=1.2pt, fill=white, inner sep=1.5pt, rounded corners=2pt] 
+        (instagram) at ($(C)+(0, -4.5)$) {\includegraphics[width=2.1cm]{images/Instagram.png}};
+  \node[draw=cvNeonCyan, line width=1.2pt, fill=white, inner sep=1.5pt, rounded corners=2pt] 
+        (github) at ($(C)+(4.5, -4.5)$) {\includegraphics[width=2.1cm]{images/github.png}};
+
+
+  % ---------------- 4. उद्धरण एवं चित्र (Bottom Quote Card) ----------------
+  % AI Core (Left)
+  \fill[cvBgDark, draw=cvNeonCyan, line width=2pt] ($(C)+(-6.8, -9.2)$) circle (1.1);
+  \pic[scale=1.3] at ($(C)+(-6.8, -9.2)$) {chip};
+  
+  % Speech bubble/rounded card for quote (neon purple frame)
+  \filldraw[fill=cvBgLight!35!cvBgDark, draw=cvNeonPurple, line width=1.5pt, rounded corners=12pt] 
+           ($(C)+(-4.5, -10.8)$) rectangle ($(C)+(7.2, -7.6)$);
+           
+  % Quote Text (white/neon orange)
+  \node[text width=11.0cm, align=center, text=white, font=\cvHH\fontsize{14}{20}\selectfont] 
+        at ($(C)+(1.35, -9.2)$) {%
+    \color{white} ``आज की जिज्ञासा, कल की खोज बनती है;\\
+    और {\color{cvNeonOrange}कृत्रिम बुद्धिमत्ता} उस खोज को नई दिशा देती है।''
+  };
+  
+  % Graphics on the right
+  \pic[scale=0.8, rotate=30] at ($(C)+(8.4, -9.5)$) {rocket};
+  \pic[scale=0.5] at ($(C)+(6.8, -7.5)$) {atom};
+
+
+  % ---------------- 5. संस्करण एवं बारकोड (Bottom-most details) ----------------
+  % Left edition text
+  \node[anchor=west, text=cvNeonCyan, font=\cvHH\fontsize{9.5}{12}\selectfont] 
+        at ($(C)+(-8.5, -13.2)$) {
+    प्रथम संस्करण (First Edition) ~$\cdot$~ 2026\\[2pt]
+    \color{white!80} स्वप्रकाशित (Self-published)
+  };
+  
+  % Right barcode (white container with neon border)
+  \node[anchor=east] at ($(C)+(8.5, -12.8)$) {
+    \fcolorbox{cvNeonCyan}{white}{\includegraphics[height=1.5cm]{images/isbn-barcode.pdf}}
+  };
+  \node[anchor=east, text=white, font=\cvHH\fontsize{8.5}{10}\selectfont] 
+        at ($(C)+(8.5, -13.9)$) {ISBN 978-93-5300-000-4};
+
+\end{tikzpicture}
+\clearpage

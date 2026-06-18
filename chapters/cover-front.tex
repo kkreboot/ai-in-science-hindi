@@ -1,0 +1,104 @@
+% ============================================================
+%  आवरण पृष्ठ (Front cover) — बाल-सुलभ, रंगीन, चित्रमय डिज़ाइन
+% ============================================================
+\input{chapters/cover-graphics}
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture, overlay]
+  % ---------- पृष्ठभूमि (dark space gradient) ----------
+  \shade[top color=cvBgDark, bottom color=cvBgMid]
+        (current page.south west) rectangle (current page.north east);
+  
+  % Subtle grid pattern
+  \draw[step=1.2cm, cvGridColor, line width=0.4pt, opacity=0.45] 
+        (current page.south west) grid (current page.north east);
+
+  % Subtle glowing data pathways in the background
+  \draw[cvNeonCyan, opacity=0.15, line width=1.5pt] (-10.5, 6.0) .. controls (-3.0, 4.0) and (3.0, -8.0) .. (10.5, -6.0);
+  \draw[cvNeonPurple, opacity=0.12, line width=1.2pt] (-10.5, -4.0) .. controls (-4.0, 2.0) and (4.0, 8.0) .. (10.5, 4.0);
+  \draw[cvNeonPink, opacity=0.10, line width=1.0pt] (-10.5, 0.0) .. controls (-2.0, -6.0) and (2.0, 6.0) .. (10.5, -2.0);
+
+  \coordinate (C) at (current page.center);
+
+  % Central AI Core Coordinate
+  \coordinate (Hub) at ($(C)+(0,-2.0)$);
+  
+  % Orbits and signals around Hub (geometric orbital shells)
+  \draw[cvNeonCyan, opacity=0.06, line width=2pt] (Hub) circle (1.8);
+  \draw[cvNeonPurple, opacity=0.10, line width=1.5pt] (Hub) circle (3.0);
+  \draw[cvNeonCyan, opacity=0.15, line width=1.2pt] (Hub) circle (5.52);
+  
+  % Branching Coordinates (symmetrical on the 5.52cm orbit)
+  \coordinate (TL) at ($(Hub)+(-4.5, 3.2)$);
+  \coordinate (TR) at ($(Hub)+(4.5, 3.2)$);
+  \coordinate (BL) at ($(Hub)+(-4.5, -3.2)$);
+  \coordinate (BR) at ($(Hub)+(4.5, -3.2)$);
+  
+  % Glowing neural lines from hub to science branches
+  \draw[cvNeonCyan, opacity=0.45, line width=2pt] (Hub) -- (TL);
+  \draw[cvNeonGreen, opacity=0.45, line width=2pt] (Hub) -- (TR);
+  \draw[cvNeonPink, opacity=0.45, line width=2pt] (Hub) -- (BL);
+  \draw[cvNeonYellow, opacity=0.45, line width=2pt] (Hub) -- (BR);
+  
+  % Sidelinks connecting the science branches
+  \draw[white, opacity=0.15, line width=1.2pt, dashed] (TL) -- (BL);
+  \draw[white, opacity=0.15, line width=1.2pt, dashed] (TR) -- (BR);
+  
+  % Inner signals/neurons along paths
+  \fill[cvNeonCyan] ($(Hub)!0.45!(TL)$) circle (3.5pt);
+  \fill[cvNeonGreen] ($(Hub)!0.55!(TR)$) circle (3.5pt);
+  \fill[cvNeonPink] ($(Hub)!0.45!(BL)$) circle (3.5pt);
+  \fill[cvNeonYellow] ($(Hub)!0.55!(BR)$) circle (3.5pt);
+  
+  % Orbital Science Nodes (styled outer rings)
+  \fill[cvBgDark, draw=cvNeonPurple, line width=2pt] (TL) circle (1.25);
+  \fill[cvBgDark, draw=cvNeonGreen, line width=2pt] (TR) circle (1.25);
+  \fill[cvBgDark, draw=cvNeonPink, line width=2pt] (BL) circle (1.25);
+  \fill[cvBgDark, draw=cvNeonYellow, line width=2pt] (BR) circle (1.25);
+  
+  % Icons inside nodes
+  \pic at (TL) {atom};
+  \pic at (TR) {flask};
+  \pic[scale=0.75] at (BL) {dna};
+  \pic at (BR) {chip};
+  
+
+  
+  % Central AI Core Hub (Mascot with glowing halo)
+  \fill[cvNeonCyan, opacity=0.08] (Hub) circle (1.4);
+  \fill[cvBgDark, draw=cvNeonCyan, line width=2.5pt] (Hub) circle (1.4);
+  \pic[scale=1.1] at (Hub) {cyber_robot};
+
+  % Scattered stars & sparkles in background
+  \cvstar{$(C)+(-7.8,6.0)$}{0.4}{cvNeonYellow}
+  \cvstar{$(C)+(7.8,6.0)$}{0.4}{cvNeonYellow}
+  \cvsparkle{$(C)+(-8.5,2.5)$}{0.45}{cvNeonPink}
+  \cvsparkle{$(C)+(8.5,2.5)$}{0.45}{cvNeonCyan}
+  \cvsparkle{$(C)+(-2.5,-7.5)$}{0.35}{cvNeonPurple}
+  \cvsparkle{$(C)+(2.5,-7.5)$}{0.35}{cvNeonGreen}
+  \cvstar{$(C)+(8.0,-9.2)$}{0.3}{cvNeonYellow}
+  \cvstar{$(C)+(-8.0,-9.2)$}{0.3}{cvNeonYellow}
+
+  % ---------- शीर्षक बैनर (title banner — glassmorphism look) ----------
+  \node[fill=cvBgLight!60!cvBgDark, rounded corners=20pt,
+        draw=cvNeonCyan, double=cvNeonBlue, double distance=1.5pt, line width=1.2pt,
+        inner xsep=24pt, inner ysep=20pt, align=center] (title) at ($(C)+(0,8.7)$) {%
+    {\cvTH\fontsize{30}{36}\selectfont\color{white} विज्ञान में}\\[4pt]
+    {\cvTH\fontsize{33}{39}\selectfont\color{cvNeonYellow} कृत्रिम बुद्धिमत्ता}\\[10pt]
+    {\cvHH\fontsize{15}{18}\selectfont\color{cvNeonCyan} सिद्धांत, अनुप्रयोग एवं भविष्य}\\[8pt]
+    {\cvHL\fontsize{14}{16}\selectfont\color{white} Artificial Intelligence in Science}\\[2pt]
+    {\cvBL\fontsize{10.5}{13}\selectfont\color{white!70} Principles, Applications and Future}%
+  };
+
+  % ---------- टैगलाइन + लेखक (tagline + author pill) ----------
+  \node[align=center, text=white] at ($(C)+(0,-9.6)$)
+    {\cvHH\fontsize{13}{16}\selectfont एक मज़ेदार, गतिविधि एवं परियोजना आधारित विज्ञान पुस्तक};
+    
+  \node[fill=cvBgLight!80!cvBgDark, rounded corners=15pt, draw=cvNeonBlue, line width=1.5pt,
+        inner xsep=22pt, inner ysep=10pt, text=white] at ($(C)+(0,-11.4)$)
+    {\cvTL\fontsize{20}{24}\selectfont Krishna Kumar Godara};
+    
+  \node[text=cvNeonCyan] at ($(C)+(0,-12.7)$)
+    {\cvHL\fontsize{11}{13}\selectfont Department of Physics, IIT Jodhpur ~$\cdot$~ 2026};
+\end{tikzpicture}
+\end{titlepage}

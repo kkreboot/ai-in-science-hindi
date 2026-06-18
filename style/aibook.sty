@@ -1,0 +1,299 @@
+% ============================================================
+%  aibook.sty  -  शैली फ़ाइल (style/preamble)
+%  "विज्ञान में कृत्रिम बुद्धिमत्ता" - एक गतिविधि-आधारित विज्ञान पुस्तक
+%  Engine: XeLaTeX (Devanagari + English mixed)
+% ============================================================
+\ProvidesPackage{style/aibook}[2026/06/17 AI in Science book style]
+
+% ---------- आधारभूत पैकेज ----------
+\usepackage{fontspec}
+\usepackage[table,svgnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta, shapes.geometric, calc, fit, backgrounds}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.16}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{enumitem}
+% बुलेट चिह्न देवनागरी फ़ॉन्ट में नहीं है, अतः Latin फ़ॉन्ट से लें
+\setlist[itemize,1]{label={\textcolor{aiblue}{\,{\latinfont\textbullet}\,}}}
+\setlist[itemize,2]{label={\textcolor{aigreen}{\,{\latinfont\textendash}\,}}}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage{pdfpages}
+\usepackage{makeidx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{qrcode}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{geometry}
+
+% ---------- पृष्ठ आकार ----------
+\geometry{a4paper, margin=2.4cm, headheight=15pt}
+
+% ---------- पंक्ति-विस्तार सहनशीलता (Feature 8: overfull boxes कम करें) ----------
+% लम्बे हिन्दी+अंग्रेज़ी मिश्रित शब्दों हेतु थोड़ा अतिरिक्त खिंचाव दें।
+\tolerance=2000
+\emergencystretch=3em
+\hfuzz=2pt
+
+% ---------- अनुक्रमणिका (index) ----------
+\makeindex
+
+% ---------- PDF मेटाडेटा (Feature 4) ----------
+\hypersetup{
+  pdftitle={विज्ञान में कृत्रिम बुद्धिमत्ता: सिद्धांत, अनुप्रयोग एवं भविष्य},
+  pdfauthor={Krishna Kumar Godara},
+  pdfsubject={Artificial Intelligence in Science},
+  pdfkeywords={AI, Artificial Intelligence, Machine Learning, Science, Physics, Chemistry, Biology, Data Science, Hindi},
+  pdfcreator={XeLaTeX},
+  pdflang={hi},
+  bookmarksnumbered=true
+}
+
+% ---------- चित्र/तालिका के हिन्दी नाम ----------
+\renewcommand{\figurename}{चित्र}
+\renewcommand{\tablename}{तालिका}
+\renewcommand{\contentsname}{विषय-सूची}
+\renewcommand{\listfigurename}{चित्र-सूची}
+\renewcommand{\listtablename}{तालिका-सूची}
+
+% ---------- भाषा एवं फ़ॉन्ट ----------
+% मुख्य पाठ देवनागरी (Hindi) में, परन्तु वैज्ञानिक/तकनीकी शब्द अंग्रेज़ी (Latin) में।
+% Noto Serif Devanagari में Latin glyph नहीं हैं, अतः ucharclasses द्वारा Unicode
+% block के अनुसार फ़ॉन्ट स्वतः बदल दिया जाता है।
+\setmainfont{Noto Serif Devanagari}[Script=Devanagari]
+\setsansfont{Noto Sans Devanagari}[Script=Devanagari]
+\newfontfamily\devanagarifont{Noto Serif Devanagari}[Script=Devanagari]
+\newfontfamily\devanagarisffont{Noto Sans Devanagari}[Script=Devanagari]
+\newfontfamily\latinfont{Noto Serif}[Scale=MatchLowercase]
+\newfontfamily\latinsffont{Noto Sans}[Scale=MatchLowercase]
+% कोड/मोनोस्पेस के लिए
+\newfontfamily\codefont{FreeMono}
+
+% Hindi हेतु उचित line-breaking
+\XeTeXlinebreaklocale "hi"
+\XeTeXlinebreakskip = 0pt plus 0.1pt
+
+% स्वतः फ़ॉन्ट-परिवर्तन (Latin block ↔ Devanagari)
+\usepackage{ucharclasses}
+\setTransitionsForLatin{\latinfont}{\devanagarifont}
+
+% ---------- रंग योजना ----------
+\definecolor{aiblue}{HTML}{1F4E79}
+\definecolor{ailite}{HTML}{E8F0FE}
+\definecolor{aigreen}{HTML}{1E7145}
+\definecolor{aigreenL}{HTML}{E6F4EA}
+\definecolor{aiamber}{HTML}{B06000}
+\definecolor{aiamberL}{HTML}{FFF4E0}
+\definecolor{aigrey}{HTML}{5F6368}
+
+% ---------- साझा रंग/फ़ॉन्ट/चित्र (cover के साथ एकीकृत) ----------
+% cvBlue/cvCyan/cvPurple/cvNeon* रंग, Baloo फ़ॉन्ट (\cvTH \cvHH) एवं
+% विषय-चित्र (atom, flask, dna ...) यहीं से आते हैं।
+\input{chapters/cover-graphics}
+% पठनीयता हेतु थोड़ा अधिक पंक्ति-अंतराल
+\linespread{1.12}
+
+% प्रिंट हेतु पठनीय नीयन-व्युत्पन्न आभा (deeper than on-screen neon)
+\definecolor{aiteal}{HTML}{0E86A8}
+
+% ---------- शीर्षक शैली (headings) — Baloo rounded + accent ----------
+\titleformat{\section}
+  {\cvHH\Large\color{cvBlue}}
+  {\textcolor{cvCyan}{\rule[-0.06em]{3.6pt}{0.95em}}\hspace{7pt}\thesection}{0.6em}{}
+\titleformat{\subsection}
+  {\cvHH\large\color{aiteal}}
+  {\textcolor{cvPurple}{\rule[-0.04em]{3pt}{0.8em}}\hspace{6pt}\thesubsection}{0.55em}{}
+
+% ---------- अध्याय आरम्भ: dark-neon banner + विषय-चित्र (chapter opener) ----------
+% संख्यांकित बनाम तारांकित (\chapter vs \chapter*) हेतु ध्वज
+\makeatletter
+\newif\ifnumchap
+\let\ai@chapter\@chapter  \def\@chapter{\numchaptrue\ai@chapter}
+\let\ai@schapter\@schapter \def\@schapter{\numchapfalse\ai@schapter}
+\makeatother
+
+\newcommand{\chapbannerbg}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[cvBgDark] (current page.north west) rectangle ([yshift=-3.5cm]current page.north east);
+    \draw[step=0.8cm,cvGridColor,line width=0.4pt,opacity=0.55]
+      (current page.north west) grid ([yshift=-3.5cm]current page.north east);
+    \fill[cvNeonCyan] ([yshift=-3.46cm]current page.north west)
+      rectangle ([yshift=-3.56cm]current page.north east);
+    \ifnumchap
+      \node[anchor=west, text=cvNeonCyan, font=\cvHL\fontsize{15}{18}\selectfont]
+        at ([xshift=2.4cm,yshift=-1.75cm]current page.north west) {अध्याय~\thechapter};
+    \fi
+  \end{tikzpicture}\par\nobreak
+}
+\newcommand{\chapbannericon}{%
+  \ifnumchap
+  \begin{tikzpicture}[remember picture,overlay]
+    \ifcase\value{chapter}\or
+      \pic[scale=1.35] at ([xshift=-3cm,yshift=-1.75cm]current page.north east){robot};\or
+      \pic[scale=1.45] at ([xshift=-3cm,yshift=-1.75cm]current page.north east){atom};\or
+      \pic[scale=1.45] at ([xshift=-3cm,yshift=-1.75cm]current page.north east){flask};\or
+      \pic[scale=1.2] at ([xshift=-3cm,yshift=-1.6cm]current page.north east){dna};\or
+      \pic[scale=1.2] at ([xshift=-3cm,yshift=-1.75cm]current page.north east){chip};\or
+      \pic[scale=1.35] at ([xshift=-3cm,yshift=-1.75cm]current page.north east){bulb};\fi
+  \end{tikzpicture}\par\nobreak
+  \fi
+}
+\titleformat{\chapter}[display]
+  {\thispagestyle{empty}\chapbannerbg\chapbannericon}
+  {}{0pt}
+  {\cvTH\fontsize{26}{31}\selectfont\color{cvBlue}}
+  [\vspace{4pt}\textcolor{cvCyan}{\rule{4.6cm}{2.4pt}}]
+\titlespacing*{\chapter}{0pt}{2.55cm}{24pt}
+
+% ---------- हेडर/फ़ुटर ----------
+\renewcommand{\chaptername}{अध्याय}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\cvHH\color{aigrey}\leftmark}
+\fancyhead[R]{\tikz[baseline=-0.6ex]{\node[fill=cvBlue,text=white,rounded corners=3pt,
+   inner xsep=5pt,inner ysep=2pt,font=\cvHL\small]{\thepage};}}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\headrule}{\vskip2pt\hbox to\headwidth{%
+   \color{cvCyan}\leaders\hrule height1pt\hfill}}
+
+% रिक्त (blank) verso पृष्ठों पर हेडर/पृष्ठ-संख्या न दिखे
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside
+  \ifodd\c@page\else
+    \hbox{}\thispagestyle{empty}\newpage
+    \if@twocolumn\hbox{}\newpage\fi
+  \fi\fi}
+\makeatother
+
+% ---------- कोड लिस्टिंग ----------
+\lstset{
+  basicstyle=\codefont\small,
+  keywordstyle=\color{cvBlue}\bfseries,
+  commentstyle=\color{aigreen}\itshape,
+  stringstyle=\color{cvOrange},
+  numbers=left, numberstyle=\tiny\color{cvCyan!55!black}, numbersep=7pt,
+  xleftmargin=13pt,
+  frame=none, breaklines=true, showstringspaces=false, language=Python,
+  aboveskip=2pt, belowskip=2pt
+}
+% सभी lstlisting को rounded, shadowed, accented tcolorbox में लपेटें + Python badge
+\tcolorboxenvironment{lstlisting}{
+  enhanced, breakable, arc=5pt, boxrule=1pt,
+  colframe=cvBlue, colback=cvBlue!4,
+  drop shadow={black!18},
+  left=7pt, right=8pt, top=11pt, bottom=6pt,
+  before skip=10pt, after skip=10pt,
+  overlay={\node[anchor=north east, font=\cvHL\scriptsize, text=white,
+     fill=cvBlue, rounded corners=3pt, inner xsep=5pt, inner ysep=1.5pt]
+     at ([xshift=-5pt,yshift=3pt]frame.north east){Python};}
+}
+
+% ---------- तालिका शैली (table accent: blue header band + zebra) ----------
+\arrayrulecolor{cvBlue!45}
+\setlength{\arrayrulewidth}{0.5pt}
+\rowcolors{2}{cvCyan!7}{white}
+% शीर्षक-कोष्ठ हेतु: सफ़ेद Baloo पाठ (नीली पट्टी पर)
+\newcommand{\hdc}[1]{{\cvHH\color{white}#1}}
+
+% ============================================================
+%  कस्टम बॉक्स (custom boxes)
+% ============================================================
+
+% साझा शैली + शीर्षक-मार्कर (rounded, shadow, Baloo title)
+\newcommand{\boxmk}{{\color{white}\rule[0.04em]{0.5em}{0.5em}}~}
+\tcbset{aiboxbase/.style={
+  breakable, enhanced, arc=6pt, boxrule=1.1pt,
+  fonttitle=\cvHH, coltitle=white,
+  drop shadow={black!18},
+  left=9pt, right=9pt, top=6pt, bottom=6pt,
+  before skip=9pt, after skip=9pt
+}}
+
+% गतिविधि (Activity) — cyan
+\newtcolorbox{gatividhi}[1][]{aiboxbase, colback=cvCyan!7, colframe=cvCyan,
+  title={\boxmk गतिविधि (Activity)\ifx\relax#1\relax\else~:~#1\fi}}
+
+% परियोजना (Project) — blue
+\newtcolorbox{pariyojana}[1][]{aiboxbase, colback=cvBlue!6, colframe=cvBlue,
+  title={\boxmk परियोजना (Project)\ifx\relax#1\relax\else~:~#1\fi}}
+
+% क्या आप जानते हैं? (Did you know) — purple
+\newtcolorbox{jante}{aiboxbase, colback=cvPurple!7, colframe=cvPurple,
+  title={\boxmk क्या आप जानते हैं? (Did you know?)}}
+
+% सोचिए (Think it over) — orange
+\newtcolorbox{sochiye}{aiboxbase, colback=cvOrange!7, colframe=cvOrange,
+  title={\boxmk सोचिए (Think it over)}}
+
+% मुख्य शब्द / शब्दावली (Key terms) - साथ ही अनुक्रमणिका (index) में भी जोड़ें
+% (Feature 10: शब्दावली के पद स्वतः index में जुड़ते हैं)
+% द्विभाषी अनुक्रमणिका: अंग्रेज़ी + हिन्दी दोनों पद जुड़ते हैं
+\newcommand{\term}[2]{\textbf{#1}~\textit{(#2)}\index{#2}\index{#1}}
+
+% अध्याय-लक्ष्य सूची हेतु
+\newcommand{\lakshyaheading}{%
+  \par\medskip\noindent
+  {\sffamily\bfseries\color{aiblue}इस अध्याय में आप सीखेंगे:}\par\smallskip}
+
+% ---------- अभ्यास शीर्षक (exercise heading) ----------
+\newcommand{\abhyaasheading}{%
+  \par\bigskip\noindent
+  {\sffamily\bfseries\large\color{aiblue}अभ्यास (Exercises)}\par\nopagebreak\smallskip}
+
+% ---------- बहुविकल्पीय प्रश्न (MCQ) - Feature 5 ----------
+% उपयोग: \begin{mcq} \q प्रश्न ... \begin{choices} \ch ... \end{choices} \end{mcq}
+\newcounter{mcqcounter}[chapter]
+\newenvironment{mcq}{%
+  \par\smallskip\noindent
+  {\sffamily\bfseries\color{aigreen}बहुविकल्पीय प्रश्न (MCQ):}\par\smallskip
+  \begin{enumerate}[leftmargin=1.8em,itemsep=4pt]}%
+  {\end{enumerate}}
+% विकल्प (choices) - (अ)(ब)(स)(द)
+\newlist{choices}{enumerate}{1}
+\setlist[choices]{label=(\Alph*), leftmargin=1.8em, itemsep=1pt, topsep=2pt}
+
+% ---------- अग्रिम पठन बॉक्स (Further reading) - Feature 3 ----------
+\newtcolorbox{padhe}{aiboxbase, colback=aiteal!8, colframe=aiteal,
+  title={\boxmk अग्रिम पठन एवं स्रोत (Further Reading \& Sources)}}
+
+% ---------- उपकरण-लिंक QR सहित (tool link with QR) - Feature 6 ----------
+% उपयोग: \toollink{नाम}{https://...}
+\newcommand{\toollink}[2]{\href{#2}{\textbf{#1}}\,\textcolor{aigrey}{\footnotesize(\nolinkurl{#2})}}
+
+% ---------- चित्र-स्रोत/आभार (image source line in caption) - Feature 1 ----------
+\newcommand{\imgsrc}[1]{\newline{\footnotesize\color{aigrey}चित्र-स्रोत (Source): #1}}
+
+% ============================================================
+%  नई विशेषताएँ (added features)
+% ============================================================
+% मुख्य शब्द (per-chapter key-terms recap)
+\newtcolorbox{mukhyashabd}{aiboxbase, colback=aigreenL, colframe=aigreen,
+  title={\boxmk मुख्य शब्द (Key Terms)}}
+
+% भारत में AI (India spotlight)
+\newtcolorbox{bharatai}{aiboxbase, colback=cvOrange!8, colframe=cvOrange,
+  title={\boxmk भारत में AI (AI in India)}}
+
+% स्वयं जाँचें (self-check quiz QR; #1 = quiz URL)
+\newcommand{\selfcheckqr}[1]{%
+  \begin{tcolorbox}[aiboxbase, colback=cvPurple!6, colframe=cvPurple,
+     title={\boxmk स्वयं जाँचें (Self-check Quiz)}]%
+   \begin{minipage}[c]{0.74\linewidth}
+     इस अध्याय की स्वतः-जाँच (auto-graded) प्रश्नोत्तरी हल करने हेतु QR स्कैन
+     करें या लिंक खोलें:\\[2pt]{\footnotesize\nolinkurl{#1}}
+   \end{minipage}\hfill
+   \begin{minipage}[c]{0.22\linewidth}\raggedleft\qrcode[height=1.7cm]{#1}\end{minipage}%
+  \end{tcolorbox}}
+
+% Colab notebook link near a code listing (#1 = open-in-colab URL, encoded in QR)
+\newcommand{\colabnb}[1]{%
+  \par\nobreak\vspace{-2pt}\noindent\hfill
+  {\footnotesize\sffamily\color{cvBlue}\shortstack[r]{%
+     \textbf{इस कोड की Colab notebook}\\[-1pt]
+     {\scriptsize\color{aigrey}चलाने हेतु QR स्कैन करें}}}%
+  \hspace{6pt}\raisebox{-0.82cm}{\qrcode[height=1.15cm]{#1}}\par\vspace{3pt}}

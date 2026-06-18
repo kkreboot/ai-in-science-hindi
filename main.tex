@@ -1,0 +1,91 @@
+% ============================================================
+%  विज्ञान में कृत्रिम बुद्धिमत्ता
+%  Artificial Intelligence in Science
+%  एक गतिविधि-आधारित विज्ञान पुस्तक
+%
+%  संकलन (compile):
+%    xelatex main.tex
+%    makeindex main.idx        % अनुक्रमणिका (index) हेतु
+%    xelatex main.tex
+%    xelatex main.tex          % सन्दर्भ/पृष्ठ-संख्या स्थिर करने हेतु
+%  TeXstudio में:  Options → Build → Default Compiler = XeLaTeX
+%  (तथा makeindex सक्षम रखें, या txs:///make-index चलाएँ)
+% ============================================================
+\documentclass[12pt,openany]{book}
+\usepackage{style/aibook}
+
+\title{विज्ञान में कृत्रिम बुद्धिमत्ता: सिद्धांत, अनुप्रयोग एवं भविष्य}
+\author{Krishna Kumar Godara}
+\date{}
+
+\begin{document}
+
+% ---------------- आवरण (front cover) ----------------
+\input{chapters/cover-front}
+
+% ---------------- शीर्षक पृष्ठ ----------------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\sffamily\bfseries\Huge\color{aiblue} विज्ञान में\\[4pt] कृत्रिम बुद्धिमत्ता\par}
+\vspace{8pt}
+{\sffamily\large\color{aiblue} सिद्धांत, अनुप्रयोग एवं भविष्य\par}
+\vspace{10pt}
+{\sffamily\Large\color{aigrey} Artificial Intelligence in Science\par}
+\vspace{2pt}
+{\sffamily\normalsize\color{aigrey} Principles, Applications and Future\par}
+\vspace{1.2cm}
+{\large एक गतिविधि एवं परियोजना आधारित पुस्तक\par}
+\vspace{0.4cm}
+{\large युवा पाठकों और विज्ञान-प्रेमियों के लिए\par}
+\vfill
+{\sffamily\large\color{aiblue} विज्ञान, प्रौद्योगिकी एवं भविष्य की ओर एक कदम\par}
+\vspace{1.6cm}
+{\large लेखक\par}
+\vspace{2pt}
+{\sffamily\bfseries\Large\color{aiblue} Krishna Kumar Godara\par}
+\vspace{2pt}
+{\normalsize JRF · PhD Research Fellow\par}
+{\normalsize Department of Physics, IIT Jodhpur\par}
+\vspace{1.2cm}
+{\color{aigrey} 2026}
+\end{titlepage}
+
+% ---------------- प्रकाशन/अधिकार पृष्ठ (imprint) ----------------
+\input{chapters/00-copyright}
+
+% ---------------- भूमिका एवं विषय-सूची ----------------
+\frontmatter
+\input{chapters/00-preface}
+\input{chapters/00-acknowledge}
+\input{chapters/00-howtouse}
+\tableofcontents
+\listoffigures
+\listoftables
+
+% ---------------- मुख्य अध्याय ----------------
+\mainmatter
+\input{chapters/01-intro-ai}
+\input{chapters/02-ai-physics}
+\input{chapters/03-ai-chemistry}
+\input{chapters/04-ai-biology}
+\input{chapters/05-data-experiments}
+\input{chapters/06-ethics-future}
+
+% ---------------- परिशिष्ट ----------------
+\input{chapters/A-glossary}
+\input{chapters/B-answers}
+\input{chapters/C-references}
+\input{chapters/D-rubrics}
+\input{chapters/Z-errata}
+
+% ---------------- अनुक्रमणिका (index) ----------------
+\cleardoublepage
+\addcontentsline{toc}{chapter}{अनुक्रमणिका (Index)}
+\renewcommand{\indexname}{अनुक्रमणिका (Index)}
+\printindex
+
+% ---------------- पिछला आवरण (back cover) ----------------
+\input{chapters/cover-back}
+
+\end{document}

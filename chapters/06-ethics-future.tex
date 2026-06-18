@@ -1,0 +1,217 @@
+\chapter{AI की नैतिकता एवं भविष्य}
+\label{ch:ethics}
+
+\lakshyaheading
+\begin{itemize}[leftmargin=1.4em]
+  \item AI की सीमाएँ - यह सदैव ``सही'' क्यों नहीं होती।
+  \item डेटा में पक्षपात (bias) एवं निजता (privacy) की समस्याएँ।
+  \item विज्ञान में AI के उत्तरदायी (responsible) उपयोग के सिद्धांत।
+  \item भविष्य के क्षेत्र, करियर (careers) एवं अवसर।
+\end{itemize}
+
+\section{AI सदा ``सही'' नहीं होती}
+
+यह समझना अत्यंत आवश्यक है कि AI जादू नहीं है। वह केवल उतना ही ``जानती'' है जितना उसे
+डेटा से सिखाया गया है। इसी कारण AI कभी-कभी पूरे आत्मविश्वास के साथ \emph{ग़लत} उत्तर भी
+दे देती है। विज्ञान में, जहाँ शुद्धता सर्वोपरि है, इसलिए AI के हर परिणाम की
+\term{जाँच एवं पुनरावृत्ति}{verification \& reproducibility} अनिवार्य मानी जाती है।
+
+\begin{itemize}[leftmargin=1.4em]
+  \item AI केवल \emph{सहसम्बन्ध (correlation)} देख सकती है; \emph{कारण (causation)}
+        सिद्ध करना वैज्ञानिक का कार्य है।
+  \item AI का परिणाम तब तक स्वीकार नहीं किया जाता जब तक वह प्रयोग या स्वतंत्र विधि से
+        सत्यापित न हो।
+\end{itemize}
+
+\begin{jante}
+आधुनिक भाषा-आधारित AI कभी-कभी ऐसे ``तथ्य'' गढ़ देती है जो वास्तव में होते ही नहीं -
+इसे \emph{hallucination} कहते हैं। इसीलिए किसी भी वैज्ञानिक दावे को मूल स्रोत
+(original source) से जाँचना आवश्यक है।
+\end{jante}
+
+\section{डेटा में पक्षपात (Bias)}
+
+अध्याय~5 में हमने देखा कि एकपक्षीय डेटा से पक्षपाती परिणाम मिलते हैं। यह केवल तकनीकी
+समस्या नहीं, बल्कि एक \emph{नैतिक} समस्या भी है, क्योंकि पक्षपाती AI किसी वर्ग के साथ
+अन्याय कर सकती है।
+
+\begin{sochiye}
+यदि किसी रोग-निदान AI को केवल एक ही आयु-वर्ग के रोगियों का डेटा दिया जाए, तो वह अन्य
+आयु के रोगियों पर अच्छा कार्य क्यों नहीं करेगी? ऐसी स्थिति में किसे हानि हो सकती है,
+और इससे कैसे बचा जाए? चर्चा कीजिए।
+\end{sochiye}
+
+\section{निजता एवं उत्तरदायित्व (Privacy \& Responsibility)}
+
+विज्ञान, विशेषकर चिकित्सा एवं जीव विज्ञान में, अक्सर व्यक्तिगत डेटा (जैसे चिकित्सा-रिकॉर्ड
+या DNA) का उपयोग होता है। ऐसे डेटा की \term{निजता}{privacy} एवं सुरक्षा बनाए रखना
+वैज्ञानिक का नैतिक उत्तरदायित्व है। डेटा का उपयोग केवल अनुमति (consent) से एवं निर्धारित
+उद्देश्य के लिए ही होना चाहिए।
+
+\subsection{उत्तरदायी AI के सिद्धांत (Responsible AI)}
+अनेक देशों एवं संस्थाओं ने अब AI के उपयोग हेतु कुछ साझा सिद्धांत अपनाए हैं:
+\begin{itemize}[leftmargin=1.4em]
+  \item \term{पारदर्शिता}{Transparency} - AI ने किसी निर्णय तक कैसे पहुँचा, यह
+        समझाने योग्य हो।
+  \item \term{निष्पक्षता}{Fairness} - किसी समूह के साथ पक्षपात न हो।
+  \item \term{जवाबदेही}{Accountability} - परिणाम के लिए उत्तरदायी मनुष्य निर्धारित हो।
+  \item \term{निजता}{Privacy} - व्यक्तिगत डेटा सुरक्षित रहे।
+\end{itemize}
+
+इन चार स्तम्भों (pillars) पर ही उत्तरदायी AI टिकी होती है (चित्र~\ref{fig:responsible-ai})।
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[font=\sffamily\small,
+    pillar/.style={draw=aiblue, thick, fill=ailite, rounded corners,
+      minimum width=2.7cm, minimum height=1.3cm, align=center, inner sep=3pt},
+    top/.style={draw=aigreen, very thick, fill=aigreenL, rounded corners,
+      minimum width=9.6cm, minimum height=1cm, align=center}]
+  \node[top] (roof) {\bfseries उत्तरदायी AI (Responsible AI)};
+  \node[pillar, below left=0.9cm and 2.4cm of roof.south] (p1)
+      {पारदर्शिता\\\footnotesize Transparency};
+  \node[pillar, right=0.3cm of p1] (p2) {निष्पक्षता\\\footnotesize Fairness};
+  \node[pillar, right=0.3cm of p2] (p3) {जवाबदेही\\\footnotesize Accountability};
+  \node[pillar, right=0.3cm of p3] (p4) {निजता\\\footnotesize Privacy};
+  \foreach \p in {p1,p2,p3,p4}
+    \draw[aigrey, thick] (\p.north) -- (\p.north |- roof.south);
+\end{tikzpicture}
+\caption{उत्तरदायी AI के चार स्तम्भ - पारदर्शिता, निष्पक्षता, जवाबदेही एवं निजता।}
+\label{fig:responsible-ai}
+\end{figure}
+
+\begin{gatividhi}[किसी AI उपकरण की सीमाएँ खोजिए]
+\textbf{लक्ष्य:} व्यावहारिक रूप से समझना कि AI कहाँ चूकती है।\\[4pt]
+\textbf{चरण:}
+\begin{enumerate}[leftmargin=1.6em]
+  \item पिछले अध्यायों में बनाए किसी मॉडल (जैसे Teachable Machine का पत्ती-वर्गीकरण)
+        को जानबूझकर कठिन उदाहरण दिखाएँ - जैसे कम रोशनी, उलटी या आधी ढकी वस्तु।
+  \item नोट करें कि किन स्थितियों में मॉडल ग़लत या अनिश्चित (uncertain) हुआ।
+  \item विचार करें - क्या इसका कारण डेटा की कमी या पक्षपात था?
+\end{enumerate}
+\textbf{निष्कर्ष:} किसी भी AI को उपयोग करने से पहले उसकी सीमाएँ जानना आवश्यक है।
+\end{gatividhi}
+
+\section{भविष्य एवं करियर (Future \& Careers)}
+
+AI एवं विज्ञान के संगम से अनेक नए एवं रोमांचक क्षेत्र बन रहे हैं:
+\begin{itemize}[leftmargin=1.4em]
+  \item \term{जैव-सूचना विज्ञान}{Bioinformatics} - जीव विज्ञान एवं डेटा का मेल।
+  \item \term{संगणनात्मक भौतिकी}{Computational Physics} - प्रयोग एवं सिमुलेशन।
+  \item \term{डेटा विज्ञान}{Data Science} - हर क्षेत्र में डेटा से निर्णय।
+  \item चिकित्सा, कृषि (agriculture), मौसम एवं पर्यावरण में AI के अनुप्रयोग।
+\end{itemize}
+
+\noindent इन सभी क्षेत्रों का आधार वही विषय हैं जो आप अभी पढ़ रहे हैं - Physics,
+Chemistry, Biology एवं Mathematics। इनकी मज़बूत समझ ही भविष्य में AI को सार्थक रूप से
+उपयोग करने की कुंजी है।
+
+\begin{jante}
+भविष्य की अधिकांश वैज्ञानिक खोजें सम्भवतः मनुष्य एवं AI के \emph{सहयोग} से होंगी -
+जहाँ AI विशाल डेटा संभालेगी और मनुष्य कल्पना, प्रश्न एवं नैतिक निर्णय देगा।
+\end{jante}
+
+% ---------------- परियोजना ----------------
+\begin{pariyojana}[वाद-विवाद - विज्ञान में निर्णय किसका?]
+\textbf{उद्देश्य:} AI के नैतिक पहलुओं पर तर्कसंगत ढंग से सोचना एवं चर्चा करना।\\[4pt]
+\textbf{विषय:} ``विज्ञान में महत्वपूर्ण निर्णय AI को सौंपे जाने चाहिए या नहीं।''\\[4pt]
+\textbf{कार्य (पूरी कक्षा):}
+\begin{enumerate}[leftmargin=1.6em]
+  \item कक्षा को दो दलों में बाँटें - एक पक्ष में, एक विपक्ष में।
+  \item प्रत्येक दल इस पुस्तक के उदाहरणों (AlphaFold, रोग-निदान, bias आदि) का उपयोग
+        कर तथ्यों के साथ अपना पक्ष तैयार करे।
+  \item बारी-बारी से तर्क प्रस्तुत करें; फिर खुली चर्चा करें।
+  \item अंत में मिलकर एक \emph{संतुलित निष्कर्ष} लिखें - AI का उपयोग कब उचित है और
+        मनुष्य की भूमिका कहाँ अनिवार्य है।
+\end{enumerate}
+\textbf{मूल्यांकन:} तर्कों की गुणवत्ता, उदाहरणों के उपयोग एवं निष्कर्ष के संतुलन के
+आधार पर।
+\end{pariyojana}
+
+% ---------------- सारांश ----------------
+\begin{bharatai}
+\textbf{NITI Aayog} ने ``Responsible AI for All'' रणनीति प्रस्तुत की है, जो AI के
+उपयोग में निष्पक्षता, पारदर्शिता एवं समावेशिता (inclusiveness) पर बल देती है।
+\end{bharatai}
+
+\section*{सारांश (Summary)}
+\addcontentsline{toc}{section}{सारांश}
+\begin{itemize}[leftmargin=1.4em]
+  \item AI सदा सही नहीं होती; विज्ञान में उसके हर परिणाम की जाँच एवं सत्यापन आवश्यक है।
+  \item AI केवल सहसम्बन्ध (correlation) देखती है; कारण (causation) सिद्ध करना मनुष्य का
+        कार्य है।
+  \item पक्षपात (bias) एवं निजता (privacy) AI की प्रमुख नैतिक चुनौतियाँ हैं।
+  \item उत्तरदायी AI के चार स्तम्भ हैं - पारदर्शिता, निष्पक्षता, जवाबदेही एवं निजता।
+  \item भविष्य मनुष्य एवं AI के सहयोग का है, जिसकी नींव Physics, Chemistry, Biology
+        एवं Mathematics की समझ है।
+\end{itemize}
+
+% ---------------- अभ्यास ----------------
+\section*{अभ्यास (Exercises)}
+\addcontentsline{toc}{section}{अभ्यास}
+\textbf{अ. रिक्त स्थान भरिए:}
+\begin{enumerate}[leftmargin=1.6em]
+  \item AI द्वारा गढ़े गए झूठे ``तथ्य'' को \rule{2.8cm}{0.4pt} कहते हैं।
+  \item AI केवल \rule{2.8cm}{0.4pt} देखती है, जबकि कारण सिद्ध करना मनुष्य का कार्य है।
+  \item उत्तरदायी AI का वह सिद्धांत जिसमें निर्णय की व्याख्या सम्भव हो,
+        \rule{2.8cm}{0.4pt} कहलाता है।
+\end{enumerate}
+
+\textbf{ब. लघु उत्तरीय:}
+\begin{enumerate}[leftmargin=1.6em]
+  \item ``AI सदा सही नहीं होती'' - दो कारण देकर समझाइए।
+  \item उत्तरदायी AI (Responsible AI) के चार सिद्धांत लिखिए।
+  \item विज्ञान में डेटा-निजता क्यों महत्वपूर्ण है?
+\end{enumerate}
+
+\textbf{स. क्रियात्मक / दीर्घ उत्तरीय:}
+\begin{enumerate}[leftmargin=1.6em]
+  \item किसी मॉडल को कठिन उदाहरण दिखाकर उसकी सीमाएँ खोजने वाली गतिविधि कीजिए और
+        अपने अवलोकन लिखिए।
+  \item ``विज्ञान में AI - वरदान या चुनौती'' विषय पर एक निबंध लिखिए।
+  \item आप भविष्य में AI से जुड़ा कौन-सा वैज्ञानिक क्षेत्र चुनना चाहेंगे, और क्यों?
+\end{enumerate}
+
+\begin{mcq}
+  \item AI द्वारा आत्मविश्वास से दिया गया ग़लत उत्तर कहलाता है:
+    \begin{choices}\item मतिभ्रम (hallucination) \item पक्षपात
+      \item समाश्रयण \item प्रशिक्षण\end{choices}
+  \item निर्णय की व्याख्या सम्भव होने का सिद्धांत है:
+    \begin{choices}\item पारदर्शिता (transparency) \item गोपनीयता
+      \item गति \item संपीडन\end{choices}
+  \item निम्न में से कौन \emph{उत्तरदायी AI} का सिद्धांत नहीं है?
+    \begin{choices}\item निष्पक्षता \item जवाबदेही
+      \item डेटा-चोरी \item निजता\end{choices}
+  \item विज्ञान में अंतिम निर्णय किसके पास रहना चाहिए?
+    \begin{choices}\item AI मॉडल \item मनुष्य (वैज्ञानिक)
+      \item कंप्यूटर \item इंटरनेट\end{choices}
+\end{mcq}
+
+\begin{mukhyashabd}
+\textbf{मतिभ्रम (Hallucination)}, \textbf{सहसम्बन्ध बनाम कारण (correlation vs causation)},
+\textbf{पक्षपात (bias)}, \textbf{निजता (privacy)}, \textbf{उत्तरदायी AI} --
+पारदर्शिता, निष्पक्षता, जवाबदेही, निजता।
+\end{mukhyashabd}
+\selfcheckqr{https://forms.gle/aivigyan-ch6-quiz}
+
+% ============================================================
+%  पुस्तक का समापन (closing)
+% ============================================================
+\section*{आगे की राह (The Road Ahead)}
+\addcontentsline{toc}{section}{आगे की राह}
+
+इस पुस्तक में हमने देखा कि कृत्रिम बुद्धिमत्ता कोई अलग ``जादुई'' विषय नहीं, बल्कि
+विज्ञान को देखने का एक नया दृष्टिकोण है - जहाँ हर प्रयोग, हर मापन एवं हर खोज के पीछे
+\emph{डेटा} है। भौतिकी में पैटर्न, रसायन में अणु, और जीव विज्ञान में DNA - सभी को AI
+डेटा के रूप में ``पढ़'' सकती है।
+
+परन्तु सबसे महत्वपूर्ण बात यह है कि AI एक \emph{उपकरण} है, वैज्ञानिक नहीं। जिज्ञासा,
+कल्पना, प्रश्न पूछने की कला एवं नैतिक निर्णय - ये सदैव मनुष्य के पास रहेंगे। यदि यह
+पुस्तक आपके मन में विज्ञान एवं AI के प्रति एक नई जिज्ञासा जगा सकी, तो इसका उद्देश्य
+पूर्ण हुआ।
+
+\begin{center}
+\vspace{0.5em}
+{\sffamily\bfseries\color{aiblue} सीखते रहिए, प्रयोग करते रहिए, प्रश्न पूछते रहिए।}\\[4pt]
+\textit{- पुस्तक समाप्त -}
+\end{center}

@@ -1,0 +1,25 @@
+# LaTeX aux
+*.aux
+*.log
+*.toc
+*.lof
+*.lot
+*.idx
+*.ind
+*.ilg
+*.out
+*.synctex.gz
+# stray build logs from earlier sessions
+b?.log
+build?.log
+# editor/OS
+*~
+.DS_Store
+# epub/print intermediates (regenerable)
+epub/pp/
+epub/render-figs.pdf
+
+# stale/unused legacy cover artifacts
+coverback.pdf
+cover.pdf
+cover_page-0001.jpg
