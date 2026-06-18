@@ -31,7 +31,7 @@
   \draw[cvCyan, line width=2.2pt] (-0.2,0) -- (6.2,0);
   \foreach \x/\yr/\lbl/\dir in {%
      0/1950/{ट्यूरिंग परीक्षण}/1,
-     1/1956/{Dartmouth: \mbox{``AI''} शब्द}/-1,
+     1/1956/{Dartmouth: \mbox{“AI”} शब्द}/-1,
      2/1997/{Deep Blue\\(शतरंज में जीत)}/1,
      3/2012/{ImageNet\\(deep learning)}/-1,
      4/2017/{Transformer}/1,
@@ -41,11 +41,11 @@
      \ifnum\dir>0
        \draw[cvGridColor!60!cvBlue, line width=0.6pt] (\x,0) -- (\x,0.32);
        \node[anchor=south, align=center, text width=2cm, text=cvBlue] at (\x,0.32)
-         {\cvHL\scriptsize\textbf{\yr}\\[-1pt]{\color{aigrey}\lbl}};
+         {\cvHH\scriptsize\textbf{\yr}\\[-1pt]{\color{aigrey}\lbl}};
      \else
        \draw[cvGridColor!60!cvBlue, line width=0.6pt] (\x,0) -- (\x,-0.32);
        \node[anchor=north, align=center, text width=2cm, text=cvBlue] at (\x,-0.32)
-         {\cvHL\scriptsize\textbf{\yr}\\[-1pt]{\color{aigrey}\lbl}};
+         {\cvHH\scriptsize\textbf{\yr}\\[-1pt]{\color{aigrey}\lbl}};
      \fi}
 \end{tikzpicture}
 \caption[कृत्रिम बुद्धिमत्ता का संक्षिप्त इतिहास]{कृत्रिम बुद्धिमत्ता के कुछ
@@ -84,7 +84,7 @@
 
 \section{AI, Machine Learning एवं Data का सम्बन्ध}
 
-विद्यार्थी अक्सर AI और \term{मशीन लर्निंग}{Machine Learning, ML} को एक ही समझ लेते हैं।
+विद्यार्थी अक्सर AI और \eterm{Machine Learning (ML)} को एक ही समझ लेते हैं।
 वास्तव में ML, AI का ही एक भाग है, और Deep Learning उसका भी एक भाग। इनका सम्बन्ध
 चित्र~\ref{fig:ai-ml-dl} में दिखाया गया है।
 
@@ -175,7 +175,7 @@ AI}{Generative AI}। यह केवल पहचानती ही नही
 कोड, संगीत) स्वयं \emph{रचती} (generate) भी है। ChatGPT, Gemini एवं Claude जैसे
 उपकरण इसी श्रेणी में आते हैं।
 
-इनके मूल में \term{वृहत् भाषा मॉडल}{Large Language Model, LLM} होते हैं -- ऐसे
+इनके मूल में \eterm{Large Language Model (LLM)} होते हैं -- ऐसे
 तंत्रिका जाल (neural networks) जिन्हें इंटरनेट के विशाल पाठ (text) पर प्रशिक्षित
 किया जाता है। मूल रूप से ये \emph{``अगला शब्द क्या होगा''} का बार-बार पूर्वानुमान
 करते हैं, और इसी से पूरे वाक्य एवं अनुच्छेद बन जाते हैं। एक सरल तंत्रिका जाल की

@@ -125,7 +125,7 @@
     \fill[cvNeonCyan] ([yshift=-3.46cm]current page.north west)
       rectangle ([yshift=-3.56cm]current page.north east);
     \ifnumchap
-      \node[anchor=west, text=cvNeonCyan, font=\cvHL\fontsize{15}{18}\selectfont]
+      \node[anchor=west, text=cvNeonCyan, font=\cvHH\fontsize{15}{18}\selectfont]
         at ([xshift=2.4cm,yshift=-1.75cm]current page.north west) {अध्याय~\thechapter};
     \fi
   \end{tikzpicture}\par\nobreak
@@ -234,6 +234,8 @@
 % (Feature 10: शब्दावली के पद स्वतः index में जुड़ते हैं)
 % द्विभाषी अनुक्रमणिका: अंग्रेज़ी + हिन्दी दोनों पद जुड़ते हैं
 \newcommand{\term}[2]{\textbf{#1}~\textit{(#2)}\index{#2}\index{#1}}
+% प्रचलित अंग्रेज़ी पद: केवल अंग्रेज़ी (हिन्दी अनुवाद नहीं) — bold + index
+\newcommand{\eterm}[1]{\textbf{#1}\index{#1}}
 
 % अध्याय-लक्ष्य सूची हेतु
 \newcommand{\lakshyaheading}{%

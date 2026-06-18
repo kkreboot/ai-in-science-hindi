@@ -24,6 +24,7 @@ $t =~ s/\\end\{lstlisting\}/\\end{verbatim}/g;
 
 # --- \term{hi}{en} -> bold hi (en) ---
 $t =~ s/\\term\{([^{}]*)\}\{([^{}]*)\}/\\textbf{$1} ($2)/g;
+$t =~ s/\\eterm\{([^{}]*)\}/\\textbf{$1}/g;
 # --- image source credit ---
 $t =~ s/\\imgsrc\{([^{}]*)\}/ \\textit{(स्रोत: $1)}/g;
 # --- chapter-objectives heading ---
