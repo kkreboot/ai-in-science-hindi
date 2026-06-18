@@ -4,7 +4,7 @@
 
 An activity- and project-based Hindi science book that introduces **Artificial
 Intelligence** through Physics, Chemistry, Biology and Data Science — aimed at
-RBSE Class 11–12 students and young science enthusiasts.
+senior-secondary students and young science enthusiasts.
 
 **Author:** Krishna Kumar Godara · Department of Physics, IIT Jodhpur
 **License:** [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
