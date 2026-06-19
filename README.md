@@ -1,9 +1,9 @@
 # विज्ञान में कृत्रिम बुद्धिमत्ता · Artificial Intelligence in Science
 
-*सिद्धांत, अनुप्रयोग एवं भविष्य — Principles, Applications and Future*
+*सिद्धांत, अनुप्रयोग एवं भविष्य - Principles, Applications and Future*
 
 An activity- and project-based Hindi science book that introduces **Artificial
-Intelligence** through Physics, Chemistry, Biology and Data Science — aimed at
+Intelligence** through Physics, Chemistry, Biology and Data Science - aimed at
 senior-secondary students and young science enthusiasts.
 
 **Author:** Krishna Kumar Godara · Department of Physics, IIT Jodhpur
@@ -23,14 +23,14 @@ senior-secondary students and young science enthusiasts.
 
 | Notebook | Open in Colab |
 |----------|---------------|
-| Ch 2 — spring / regression | [ch2-spring.ipynb](https://colab.research.google.com/github/kkreboot/ai-in-science-hindi/blob/main/notebooks/ch2-spring.ipynb) |
-| Ch 3 — solubility | [ch3-solubility.ipynb](https://colab.research.google.com/github/kkreboot/ai-in-science-hindi/blob/main/notebooks/ch3-solubility.ipynb) |
-| Ch 4 — DNA / GC content | [ch4-dna.ipynb](https://colab.research.google.com/github/kkreboot/ai-in-science-hindi/blob/main/notebooks/ch4-dna.ipynb) |
-| Ch 5 — regression + plot | [ch5-regression-plot.ipynb](https://colab.research.google.com/github/kkreboot/ai-in-science-hindi/blob/main/notebooks/ch5-regression-plot.ipynb) |
+| Ch 2 - spring / regression | [ch2-spring.ipynb](https://colab.research.google.com/github/kkreboot/ai-in-science-hindi/blob/main/notebooks/ch2-spring.ipynb) |
+| Ch 3 - solubility | [ch3-solubility.ipynb](https://colab.research.google.com/github/kkreboot/ai-in-science-hindi/blob/main/notebooks/ch3-solubility.ipynb) |
+| Ch 4 - DNA / GC content | [ch4-dna.ipynb](https://colab.research.google.com/github/kkreboot/ai-in-science-hindi/blob/main/notebooks/ch4-dna.ipynb) |
+| Ch 5 - regression + plot | [ch5-regression-plot.ipynb](https://colab.research.google.com/github/kkreboot/ai-in-science-hindi/blob/main/notebooks/ch5-regression-plot.ipynb) |
 
 ## Build
 
-Requires XeLaTeX (TeX Live), `makeindex`, and — for the EPUB — `pandoc` + `dvisvgm`.
+Requires XeLaTeX (TeX Live), `makeindex`, and - for the EPUB - `pandoc` + `dvisvgm`.
 
 ```bash
 make          # build the PDF  (xelatex ×3 + makeindex)
