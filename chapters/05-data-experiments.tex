@@ -1,11 +1,11 @@
-\chapter{डेटा, प्रयोग एवं AI उपकरण}
+\chapter{Data, प्रयोग एवं AI उपकरण}
 \label{ch:data}
 
 \lakshyaheading
 \begin{itemize}[leftmargin=1.4em]
-  \item अच्छे डेटा (good data) के गुण - शुद्धता, विविधता एवं पर्याप्त मात्रा।
+  \item अच्छे data (good data) के गुण - शुद्धता, विविधता एवं पर्याप्त मात्रा।
   \item डेटा-विज्ञान (data science) के पाँच चरण - संग्रह से निष्कर्ष तक।
-  \item डेटा में \term{पक्षपात}{bias} को पहचानना एवं उससे बचना।
+  \item data में \term{पक्षपात}{bias} को पहचानना एवं उससे बचना।
   \item विद्यार्थियों के लिए मुफ़्त एवं open-source AI उपकरण।
   \item \emph{Google Colab} में अपना पहला Python कोड स्वयं चलाना।
 \end{itemize}
@@ -13,28 +13,28 @@
 \section{``Garbage in, garbage out''}
 
 कंप्यूटर विज्ञान का एक प्रसिद्ध कथन है - \emph{``Garbage in, garbage out''}, अर्थात्
-यदि भीतर डाला गया डेटा ख़राब है तो परिणाम भी ख़राब ही होगा। कोई भी AI उतनी ही अच्छी
-होती है जितना उसका डेटा। इसीलिए वैज्ञानिक प्रयोग में डेटा का \emph{सावधानीपूर्वक संग्रह}
+यदि भीतर डाला गया data ख़राब है तो परिणाम भी ख़राब ही होगा। कोई भी AI उतनी ही अच्छी
+होती है जितना उसका डेटा। इसीलिए वैज्ञानिक प्रयोग में data का \emph{सावधानीपूर्वक संग्रह}
 सबसे महत्वपूर्ण चरण माना जाता है।
 
-अच्छे डेटा के तीन प्रमुख गुण हैं:
+अच्छे data के तीन प्रमुख गुण हैं:
 \begin{itemize}[leftmargin=1.4em]
   \item \term{शुद्धता}{Accuracy} - मान सही ढंग से एवं सही उपकरण से मापे गए हों।
-  \item \term{विविधता}{Diversity} - डेटा सभी प्रकार की स्थितियों को दर्शाता हो।
-  \item \term{पर्याप्त मात्रा}{Sufficient quantity} - इतने उदाहरण हों कि पैटर्न
+  \item \term{विविधता}{Diversity} - data सभी प्रकार की स्थितियों को दर्शाता हो।
+  \item \term{पर्याप्त मात्रा}{Sufficient quantity} - इतने उदाहरण हों कि pattern
         स्पष्ट दिखे।
 \end{itemize}
 
 \section{डेटा-विज्ञान के पाँच चरण}
 
-किसी भी जाँच में - चाहे भौतिकी की हो, रसायन की या जीव विज्ञान की - डेटा के साथ कार्य
+किसी भी जाँच में - चाहे भौतिकी की हो, रसायन की या जीव विज्ञान की - data के साथ कार्य
 प्रायः इन्हीं पाँच चरणों में होता है:
 
 \begin{enumerate}[leftmargin=1.8em]
-  \item \term{संग्रह}{Collection} - सेंसर, सर्वेक्षण या प्रयोग से डेटा एकत्र करना।
+  \item \term{संग्रह}{Collection} - सेंसर, सर्वेक्षण या प्रयोग से data एकत्र करना।
   \item \term{सफ़ाई}{Cleaning} - त्रुटियाँ, दोहराव एवं रिक्त (missing) मान हटाना।
-  \item \term{विश्लेषण}{Analysis} - ग्राफ़ एवं सांख्यिकी (statistics) से पैटर्न देखना।
-  \item \term{मॉडलन}{Modelling} - पैटर्न से नियम/पूर्वानुमान निकालना (जैसे regression)।
+  \item \term{विश्लेषण}{Analysis} - ग्राफ़ एवं सांख्यिकी (statistics) से pattern देखना।
+  \item \term{मॉडलन}{Modelling} - pattern से नियम/पूर्वानुमान निकालना (जैसे regression)।
   \item \term{निष्कर्ष}{Conclusion} - परिणाम की वैज्ञानिक व्याख्या एवं सत्यापन।
 \end{enumerate}
 
@@ -64,17 +64,17 @@
 \end{figure}
 
 \begin{jante}
-डेटा वैज्ञानिक (data scientists) प्रायः अपना 60-80\% समय केवल \emph{चरण~2 (cleaning)}
-में लगाते हैं। असली कौशल अक्सर ``साफ़ डेटा'' बनाने में ही होता है, न कि केवल मॉडल चलाने में।
+data वैज्ञानिक (data scientists) प्रायः अपना 60-80\% समय केवल \emph{चरण~2 (cleaning)}
+में लगाते हैं। असली कौशल अक्सर ``साफ़ data'' बनाने में ही होता है, न कि केवल model चलाने में।
 \end{jante}
 
-\section{डेटा में पक्षपात (Bias)}
+\section{data में पक्षपात (Bias)}
 
-यदि एकत्र किया गया डेटा एकपक्षीय हो, तो AI के परिणाम भी \term{पक्षपाती}{biased} होंगे -
-भले ही कोड बिल्कुल सही हो। उदाहरण के लिए, यदि किसी पत्ती-पहचान मॉडल को केवल हरी पत्तियों
+यदि एकत्र किया गया data एकपक्षीय हो, तो AI के परिणाम भी \term{पक्षपाती}{biased} होंगे -
+भले ही कोड बिल्कुल सही हो। उदाहरण के लिए, यदि किसी पत्ती-पहचान model को केवल हरी पत्तियों
 के चित्र दिए जाएँ, तो वह सूखी या पीली पत्ती पहचानने में असफल रहेगा।
 
-इसीलिए वैज्ञानिक कार्य में यह सदैव पूछा जाता है - ``क्या मेरा डेटा सभी स्थितियों का
+इसीलिए वैज्ञानिक कार्य में यह सदैव पूछा जाता है - ``क्या मेरा data सभी स्थितियों का
 प्रतिनिधित्व करता है?'' यह प्रश्न आगे अध्याय~6 (नैतिकता) से भी गहराई से जुड़ा है।
 
 \begin{sochiye}
@@ -95,7 +95,7 @@
 \midrule
 \href{https://teachablemachine.withgoogle.com/}{Teachable Machine} & बिना कोड के image/sound classification \\
 \href{https://colab.research.google.com/}{Google Colab}      & ब्राउज़र में मुफ़्त Python चलाना (कुछ इंस्टॉल नहीं करना पड़ता) \\
-\href{https://phyphox.org/}{Phyphox}           & मोबाइल सेंसर से भौतिक डेटा एकत्र करना \\
+\href{https://phyphox.org/}{Phyphox}           & मोबाइल सेंसर से भौतिक data एकत्र करना \\
 \href{https://orangedatamining.com/}{Orange Data Mining} & दृश्य (visual) रूप से ML समझना, बिना अधिक कोड \\
 \href{https://molview.org/}{MolView} / \href{https://pubchem.ncbi.nlm.nih.gov/}{PubChem}  & अणुओं की 3D संरचना देखना \\
 \bottomrule
@@ -112,8 +112,8 @@
 Colab} एक मुफ़्त सेवा है जो ब्राउज़र में ही Python चला देती है - कंप्यूटर पर कुछ भी
 इंस्टॉल करने की आवश्यकता नहीं।
 
-\begin{gatividhi}[Colab में पहला कदम - डेटा का ग्राफ़ एवं regression]
-\textbf{लक्ष्य:} स्वयं Python चलाकर डेटा पर सर्वोत्तम रेखा खींचना।\\[4pt]
+\begin{gatividhi}[Colab में पहला कदम - data का ग्राफ़ एवं regression]
+\textbf{लक्ष्य:} स्वयं Python चलाकर data पर सर्वोत्तम रेखा खींचना।\\[4pt]
 \textbf{सामग्री:} कंप्यूटर/मोबाइल, इंटरनेट, एक Google खाता।\\[4pt]
 \textbf{चरण:}
 \begin{enumerate}[leftmargin=1.6em]
@@ -153,8 +153,8 @@ plt.show()
 \noindent यह वही \emph{least-squares regression} है जिसे आपने अध्याय~2 में हाथ से किया
 था - अब कंप्यूटर इसे कुछ ही क्षणों में, अधिक सटीकता से कर देता है।
 
-\begin{gatividhi}[कक्षा का डेटा - सहसम्बन्ध (correlation)]
-\textbf{लक्ष्य:} वास्तविक डेटा एकत्र कर उसमें सम्बन्ध खोजना।\\[4pt]
+\begin{gatividhi}[कक्षा का data - सहसम्बन्ध (correlation)]
+\textbf{लक्ष्य:} वास्तविक data एकत्र कर उसमें सम्बन्ध खोजना।\\[4pt]
 \textbf{चरण:}
 \begin{enumerate}[leftmargin=1.6em]
   \item पूरी कक्षा की लम्बाई (height) एवं भुजा-विस्तार (arm-span) मापें।
@@ -166,20 +166,20 @@ plt.show()
 
 % ---------------- परियोजना ----------------
 \begin{pariyojana}[अपना पहला डेटासेट - पूरा डेटा-विज्ञान चक्र]
-\textbf{उद्देश्य:} किसी एक प्रश्न पर स्वयं डेटा एकत्र कर पाँचों चरणों का पालन करना।\\[4pt]
+\textbf{उद्देश्य:} किसी एक प्रश्न पर स्वयं data एकत्र कर पाँचों चरणों का पालन करना।\\[4pt]
 \textbf{कार्य (समूह में, 3-4 विद्यार्थी):}
 \begin{enumerate}[leftmargin=1.6em]
   \item एक प्रश्न चुनें - जैसे ``दिन के विभिन्न समय पर कक्षा का तापमान कैसे बदलता है?''
         या ``पौधे की वृद्धि प्रतिदिन कितनी होती है?''
   \item \textbf{संग्रह:} कम से कम एक सप्ताह नियमित रूप से मान मापें एवं तालिका में लिखें।
   \item \textbf{सफ़ाई:} ग़लत या छूटे हुए मानों को जाँचें एवं ठीक करें।
-  \item \textbf{विश्लेषण:} डेटा का ग्राफ़ बनाएँ (कागज़ या Colab)।
+  \item \textbf{विश्लेषण:} data का ग्राफ़ बनाएँ (कागज़ या Colab)।
   \item \textbf{मॉडलन:} यदि सम्भव हो तो एक प्रवृत्ति-रेखा (trend line) खींचें एवं किसी
         अगले मान का पूर्वानुमान करें।
   \item \textbf{निष्कर्ष:} परिणाम को 5 स्लाइड या एक पोस्टर के रूप में प्रस्तुत करें,
-        और डेटा की किन्हीं सीमाओं (limitations) का उल्लेख करें।
+        और data की किन्हीं सीमाओं (limitations) का उल्लेख करें।
 \end{enumerate}
-\textbf{मूल्यांकन:} पाँचों चरणों के पालन, डेटा की गुणवत्ता एवं निष्कर्ष की स्पष्टता
+\textbf{मूल्यांकन:} पाँचों चरणों के पालन, data की गुणवत्ता एवं निष्कर्ष की स्पष्टता
 के आधार पर।
 \end{pariyojana}
 
@@ -192,13 +192,13 @@ plt.show()
 \section*{सारांश (Summary)}
 \addcontentsline{toc}{section}{सारांश}
 \begin{itemize}[leftmargin=1.4em]
-  \item अच्छा डेटा (शुद्ध, विविध एवं पर्याप्त) ही अच्छी AI की नींव है -
+  \item अच्छा data (शुद्ध, विविध एवं पर्याप्त) ही अच्छी AI की नींव है -
         ``garbage in, garbage out''।
   \item डेटा-विज्ञान के पाँच चरण हैं: संग्रह, सफ़ाई, विश्लेषण, मॉडलन एवं निष्कर्ष।
-  \item एकपक्षीय डेटा से पक्षपाती (biased) परिणाम मिलते हैं, चाहे कोड सही हो।
+  \item एकपक्षीय data से पक्षपाती (biased) परिणाम मिलते हैं, चाहे कोड सही हो।
   \item Teachable Machine, Google Colab, Phyphox एवं Orange जैसे मुफ़्त उपकरणों से
         विद्यार्थी स्वयं AI का अनुभव कर सकते हैं।
-  \item Google Colab में कुछ ही पंक्तियों के Python से डेटा का ग्राफ़ एवं regression
+  \item Google Colab में कुछ ही पंक्तियों के Python से data का ग्राफ़ एवं regression
         किया जा सकता है।
 \end{itemize}
 
@@ -207,14 +207,14 @@ plt.show()
 \addcontentsline{toc}{section}{अभ्यास}
 \textbf{अ. रिक्त स्थान भरिए:}
 \begin{enumerate}[leftmargin=1.6em]
-  \item ``Garbage in, \rule{2.8cm}{0.4pt} out'' - ख़राब डेटा से ख़राब परिणाम।
+  \item ``Garbage in, \rule{2.8cm}{0.4pt} out'' - ख़राब data से ख़राब परिणाम।
   \item डेटा-विज्ञान का वह चरण जिसमें त्रुटियाँ हटाई जाती हैं, \rule{2.8cm}{0.4pt} कहलाता है।
   \item ब्राउज़र में मुफ़्त Python चलाने का उपकरण \rule{2.8cm}{0.4pt} है।
 \end{enumerate}
 
 \textbf{ब. लघु उत्तरीय:}
 \begin{enumerate}[leftmargin=1.6em]
-  \item अच्छे डेटा के तीन गुण लिखिए।
+  \item अच्छे data के तीन गुण लिखिए।
   \item डेटा-विज्ञान के पाँच चरण क्रम से बताइए।
   \item डेटा-पक्षपात (bias) क्या है? एक उदाहरण दीजिए।
 \end{enumerate}
@@ -222,25 +222,25 @@ plt.show()
 \textbf{स. क्रियात्मक / दीर्घ उत्तरीय:}
 \begin{enumerate}[leftmargin=1.6em]
   \item Google Colab में ऊपर दिया कोड चलाइए तथा प्राप्त ढलान $m$ एवं $c$ के मान लिखिए।
-  \item कक्षा के height बनाम arm-span डेटा का scatter-plot बनाइए और सम्बन्ध का वर्णन कीजिए।
-  \item किसी एक प्रश्न पर सप्ताह-भर डेटा एकत्र कर पाँचों चरणों की एक संक्षिप्त रिपोर्ट
+  \item कक्षा के height बनाम arm-span data का scatter-plot बनाइए और सम्बन्ध का वर्णन कीजिए।
+  \item किसी एक प्रश्न पर सप्ताह-भर data एकत्र कर पाँचों चरणों की एक संक्षिप्त रिपोर्ट
         बनाइए।
 \end{enumerate}
 
 \begin{mcq}
   \item ``Garbage in, garbage out'' का अर्थ है:
-    \begin{choices}\item तेज़ कंप्यूटर \item ख़राब डेटा से ख़राब परिणाम
-      \item मुफ़्त सॉफ़्टवेयर \item बड़ा मॉडल\end{choices}
+    \begin{choices}\item तेज़ कंप्यूटर \item ख़राब data से ख़राब परिणाम
+      \item मुफ़्त सॉफ़्टवेयर \item बड़ा model\end{choices}
   \item ब्राउज़र में निःशुल्क Python चलाने की सेवा है:
     \begin{choices}\item Google Colab \item MS Word \item Photoshop \item VLC\end{choices}
-  \item मोबाइल सेंसर से भौतिक डेटा एकत्र करने वाला ऐप है:
+  \item मोबाइल सेंसर से भौतिक data एकत्र करने वाला ऐप है:
     \begin{choices}\item Phyphox \item Spotify \item WhatsApp \item Zoom\end{choices}
-  \item डेटा में किसी वर्ग का अनुचित कम/अधिक प्रतिनिधित्व कहलाता है:
+  \item data में किसी वर्ग का अनुचित कम/अधिक प्रतिनिधित्व कहलाता है:
     \begin{choices}\item पक्षपात (bias) \item सटीकता \item ढलान \item औसत\end{choices}
 \end{mcq}
 
 \begin{mukhyashabd}
-\textbf{अच्छा डेटा} (शुद्धता, विविधता, पर्याप्त मात्रा),
+\textbf{अच्छा data} (शुद्धता, विविधता, पर्याप्त मात्रा),
 \textbf{पाँच चरण} (संग्रह, सफ़ाई, विश्लेषण, मॉडलन, निष्कर्ष),
 \textbf{पक्षपात (bias)}, \textbf{अभिलक्षण (feature)}, \textbf{सहसम्बन्ध (correlation)}।
 \end{mukhyashabd}

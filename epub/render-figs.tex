@@ -88,7 +88,7 @@
 % डेटा-बिंदु (scatter)
 \addplot[only marks, mark=*, aiblue, mark size=2.4pt]
   coordinates {(2,1.0) (4,2.1) (6,2.9) (8,4.2) (10,5.0)};
-\addlegendentry{डेटा (data)}
+\addlegendentry{data}
 % सर्वोत्तम रेखा (best-fit), लगभग F = 0.505 x
 \addplot[thick, red, domain=0:11] {0.505*x + 0.01};
 \addlegendentry{सर्वोत्तम रेखा (best-fit)}
@@ -139,4 +139,5 @@
   \foreach \p in {p1,p2,p3,p4}
     \draw[aigrey, thick] (\p.north) -- (\p.north |- roof.south);
 \end{tikzpicture}
+
 \end{document}
